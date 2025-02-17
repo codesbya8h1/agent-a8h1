@@ -53,8 +53,8 @@ export default function Hero() {
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
             <img
-              src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c"
-              alt="Professional headshot"
+              src="/photos/abhi.jpeg"
+              alt="Abhishek Kumar - Full Stack Engineer"
               className="w-full h-full object-cover"
             />
           </motion.div>
