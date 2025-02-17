@@ -12,9 +12,9 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
         >
-          Full Stack Engineer
+          The Full-Stack Life:
           <br />
-          Specializing in AI
+          Engineering, AI, and Beyond
         </motion.h1>
 
         <motion.p
