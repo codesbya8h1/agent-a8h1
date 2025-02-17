@@ -39,10 +39,13 @@ export default function About() {
                   those in need.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
-                  When I'm not coding, you can find me exploring the city with
-                  my camera, capturing urban landscapes and street photography.
-                  My work has been featured in various photography exhibitions
-                  and online publications.
+                  When I am not in-front of my computer, you might find me
+                  <strong> snowboarding down the mountains of British Columbia</strong> in winter,
+                  enjoying a game of <strong>cricket in the summer</strong>, exploring new
+                  destinations across the globe, or capturing breathtaking views with my
+                  camera and drone. As a <strong>firm believer in healthy living</strong>,
+                  I maintain a consistent workout routine, never going more than 3-4 days
+                  without some form of physical activity.
                 </p>
               </CardContent>
             </Card>
