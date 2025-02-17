@@ -8,6 +8,7 @@ import Gallery from "@/pages/Gallery";
 import Blog from "@/pages/Blog";
 import PrintShop from "@/pages/PrintShop";
 import Cart from "@/pages/Cart";
+import Admin from "@/pages/Admin";
 import NotFound from "@/pages/not-found";
 import Navbar from "@/components/Navbar";
 
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/blog" component={Blog} />
         <Route path="/print-shop" component={PrintShop} />
         <Route path="/cart" component={Cart} />
+        <Route path="/admin" component={Admin} />
         <Route component={NotFound} />
       </Switch>
     </>
