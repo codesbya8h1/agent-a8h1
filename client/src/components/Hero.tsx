@@ -1,42 +1,60 @@
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 export default function Hero() {
   return (
-    <section className="min-h-[calc(100vh-4rem)] flex items-center justify-center relative">
-      <div className="container mx-auto px-4 text-center">
-        <motion.h1 
-          className="text-5xl md:text-7xl font-bold mb-6"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-        >
-          The Full-Stack Life:
-          <br />
-          Engineering, AI, and Beyond
-        </motion.h1>
+    <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
+      <div className="container mx-auto px-4">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <motion.div 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+          >
+            <h1 className="text-5xl md:text-7xl font-bold mb-6">
+              The Full-Stack Life:
+              <br />
+              Engineering, AI, and Beyond
+            </h1>
 
-        <motion.p
-          className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-        >
-          From data engineering to full stack development, now crafting innovative solutions in the Generative AI domain.
-        </motion.p>
+            <motion.p
+              className="text-xl text-muted-foreground mb-8"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              From data engineering to full stack development, now crafting innovative solutions in the Generative AI domain.
+            </motion.p>
 
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.4 }}
-        >
-          <Button asChild size="lg">
-            <a href="/resume.pdf" download>
-              Download Resume
-            </a>
-          </Button>
-        </motion.div>
+            <motion.div
+              className="prose prose-lg dark:prose-invert"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              <p className="mb-4">
+                I started my journey as a data engineer, where I developed a strong foundation in data processing, ETL pipelines, and database optimization. This experience gave me a unique perspective on handling and analyzing large-scale data systems.
+              </p>
+              <p>
+                As technology evolved, so did my role. I expanded my skills into full-stack development, mastering both frontend and backend technologies. Today, I'm focused on pushing the boundaries of what's possible with Generative AI, creating innovative solutions that bridge the gap between traditional software engineering and artificial intelligence.
+              </p>
+            </motion.div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
+          >
+            <img
+              src="https://images.unsplash.com/photo-1549692520-acc6669e2f0c"
+              alt="Professional headshot"
+              className="w-full h-full object-cover"
+            />
+          </motion.div>
+        </div>
       </div>
 
       <motion.div 
