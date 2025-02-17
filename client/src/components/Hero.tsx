@@ -62,9 +62,13 @@ export default function Hero() {
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
             <img
-              src="/photos/abhi.jpeg"
+              src="photos/abhi.jpeg"
               alt="Abhishek Kumar - Full Stack Engineer"
               className="w-full h-full object-cover"
+              onError={(e) => {
+                console.error('Image failed to load:', e);
+                e.currentTarget.src = 'https://via.placeholder.com/800';
+              }}
             />
           </motion.div>
         </div>
