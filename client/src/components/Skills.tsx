@@ -3,11 +3,12 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 
 const skills = [
-  { name: "Frontend Development", progress: 90 },
-  { name: "Backend Development", progress: 85 },
-  { name: "UI/UX Design", progress: 80 },
+  { name: "Data Engineering", progress: 90 },
+  { name: "Backend Development", progress: 80 },
+  { name: "Frontend Development", progress: 60 },
+  { name: "Generative AI", progress: 80 },
+  { name: "Databases", progress: 90 },
   { name: "Photography", progress: 95 },
-  { name: "Photo Editing", progress: 85 },
 ];
 
 export default function Skills() {
@@ -20,7 +21,9 @@ export default function Skills() {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl font-bold mb-8 text-center">Skills & Experience</h2>
+          <h2 className="text-3xl font-bold mb-8 text-center">
+            Skills & Experience
+          </h2>
 
           <Card>
             <CardHeader>
@@ -31,7 +34,9 @@ export default function Skills() {
                 <div key={skill.name}>
                   <div className="flex justify-between mb-2">
                     <span className="font-medium">{skill.name}</span>
-                    <span className="text-muted-foreground">{skill.progress}%</span>
+                    <span className="text-muted-foreground">
+                      {skill.progress}%
+                    </span>
                   </div>
                   <Progress value={skill.progress} className="h-2" />
                 </div>
