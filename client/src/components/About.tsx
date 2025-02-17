@@ -12,15 +12,30 @@ export default function About() {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-3xl font-bold mb-8 text-center">About Me</h2>
-          
+
           <div className="grid md:grid-cols-2 gap-8 items-center">
             <Card>
               <CardContent className="pt-6">
                 <p className="text-lg leading-relaxed">
-                  I'm a passionate developer and photographer based in New York. With over 5 years of experience in web development, I specialize in creating modern, responsive websites using the latest technologies.
+                  Hi, I’m Abhishek Kumar—a curious and passionate software
+                  engineer. My journey began as a Data Engineer, but my
+                  insatiable curiosity propelled me to dive into the realm of
+                  full-stack development. Today, I find myself at the forefront
+                  of Generative AI, exploring its boundless potential. While
+                  I’ve been in the industry for some time, I embrace every
+                  opportunity to learn with the enthusiasm of a beginner. I
+                  firmly resonate with Master Oogway’s wisdom from Kung Fu
+                  Panda: **_“There’s always something to learn, even for the
+                  master.”_** Though it originates from a movie, this philosophy
+                  profoundly aligns with my approach to growth and learning.
+                  **My vision:** To create something that outlives me and serves
+                  those in need.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
-                  When I'm not coding, you can find me exploring the city with my camera, capturing urban landscapes and street photography. My work has been featured in various photography exhibitions and online publications.
+                  When I'm not coding, you can find me exploring the city with
+                  my camera, capturing urban landscapes and street photography.
+                  My work has been featured in various photography exhibitions
+                  and online publications.
                 </p>
               </CardContent>
             </Card>
