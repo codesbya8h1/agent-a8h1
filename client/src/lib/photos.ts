@@ -9,7 +9,7 @@ export interface Photo {
 export const photos: Photo[] = [
   {
     id: 1,
-    url: "/photos/_DSC0098.jpg",
+    url: "/photos/ambleside_sunset.jpg",
     alt: "Ambleside Beach at Sunset - West Vancouver",
     category: "Landscape",
     date: "2025-02-17",
