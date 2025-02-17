@@ -29,9 +29,6 @@ app.use((req, res, next) => {
   next();
 });
 
-// Serve static files from the public directory
-app.use(express.static(path.join(process.cwd(), "public")));
-
 // Request logging middleware
 app.use((req, res, next) => {
   const start = Date.now();
@@ -83,15 +80,18 @@ app.use((req, res, next) => {
     console.log(`Running in ${isProduction ? 'production' : 'development'} mode`);
 
     if (isProduction) {
-      // In production, serve the static files from the dist/public directory
+      // Serve static files from the dist/public directory
       const distPath = path.join(process.cwd(), "dist", "public");
-      console.log('Serving static files from:', distPath);
+      console.log('Serving files from:', distPath);
 
+      // Serve static files
       app.use(express.static(distPath));
 
-      // Serve index.html for all routes in production (SPA fallback)
-      app.get("*", (_req, res) => {
-        res.sendFile(path.join(distPath, "index.html"));
+      // SPA fallback - serve index.html for all non-API routes
+      app.get(/^(?!\/api\/).+/, (_req, res) => {
+        const indexPath = path.join(distPath, "index.html");
+        console.log('Serving index.html from:', indexPath);
+        res.sendFile(indexPath);
       });
     } else {
       await setupVite(app, server);
