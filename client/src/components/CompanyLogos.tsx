@@ -97,21 +97,21 @@ export default function CompanyLogos() {
           </h2>
 
           <Card>
-            <CardContent className="p-6">
-              <div className="flex flex-nowrap overflow-x-auto gap-8 items-center justify-center py-4">
+            <CardContent className="p-8">
+              <div className="flex flex-nowrap overflow-x-auto gap-16 items-center justify-center py-8">
                 {companies.map((company, index) => (
                   <motion.a
                     key={company.name}
                     href={company.url}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="hover:text-primary transition-colors flex-shrink-0"
+                    className="hover:text-primary transition-colors flex-shrink-0 px-4"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6, delay: index * 0.1 }}
                   >
-                    <company.icon className="w-12 h-12" />
+                    <company.icon className="w-16 h-16" />
                     <span className="sr-only">{company.name}</span>
                   </motion.a>
                 ))}
