@@ -7,7 +7,7 @@ export default function Hero() {
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -28,7 +28,8 @@ export default function Hero() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              From data engineering to full stack development, now crafting innovative solutions in the Generative AI domain.
+              From data engineering to full stack development, now crafting
+              innovative solutions in the Generative AI domain.
             </motion.p>
 
             <motion.div
@@ -38,10 +39,18 @@ export default function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <p className="mb-4">
-                I started my journey as a data engineer, where I developed a strong foundation in data processing, ETL pipelines, and database optimization. This experience gave me a unique perspective on handling and analyzing large-scale data systems.
+                I started my journey as a data engineer, where I developed a
+                strong foundation in data processing, ETL pipelines, and
+                database optimization. This experience gave me a unique
+                perspective on handling and analyzing large-scale data systems.
               </p>
               <p>
-                As technology evolved, so did my role. I expanded my skills into full-stack development, mastering both frontend and backend technologies. Today, I'm focused on pushing the boundaries of what's possible with Generative AI, creating innovative solutions that bridge the gap between traditional software engineering and artificial intelligence.
+                As technology evolved, so did my role. I expanded my skills into
+                full-stack development, mastering both frontend and backend
+                technologies. Today, I'm focused on pushing the boundaries of
+                what's possible with Generative AI, creating innovative
+                solutions that bridge the gap between traditional software
+                engineering and artificial intelligence.
               </p>
             </motion.div>
           </motion.div>
@@ -61,16 +70,20 @@ export default function Hero() {
         </div>
       </div>
 
-      <motion.div 
+      <motion.div
         className="absolute bottom-8 left-1/2 -translate-x-1/2"
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.6 }}
       >
-        <Button 
-          variant="ghost" 
+        <Button
+          variant="ghost"
           size="icon"
-          onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+          onClick={() =>
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" })
+          }
         >
           <ArrowDown className="h-6 w-6" />
         </Button>
