@@ -84,7 +84,7 @@ export default function Hero() {
             )}
             {!imageError ? (
               <img
-                src={`${import.meta.env.VITE_PUBLIC_URL || ''}/photos/abhi.jpeg`}
+                src="https://drive.google.com/uc?export=view&id=1PEUFNe12I8Ir5f3g1TvfOPndFgENjoyy"
                 alt="Abhishek Kumar - Full Stack Engineer"
                 className={`w-full h-full object-cover transition-opacity duration-300 ${
                   isLoading ? 'opacity-0' : 'opacity-100'
