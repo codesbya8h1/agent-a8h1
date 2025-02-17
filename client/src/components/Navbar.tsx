@@ -10,7 +10,8 @@ export default function Navbar() {
     { href: "/", label: "Home" },
     { href: "/gallery", label: "Gallery" },
     { href: "/blog", label: "Blog" },
-    { href: "/print-shop", label: "Print Shop" },
+    // Print shop temporarily disabled
+    // { href: "/print-shop", label: "Print Shop" },
   ];
 
   return (
