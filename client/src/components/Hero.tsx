@@ -13,9 +13,13 @@ export default function Hero() {
             transition={{ duration: 0.6 }}
           >
             <h1 className="text-5xl md:text-7xl font-bold mb-6">
-              The Full-Stack Life:
+              Abhishek Kumar
               <br />
-              Engineering, AI, and Beyond
+              <span className="text-4xl md:text-6xl">
+                The Full-Stack Life:
+                <br />
+                Engineering, AI, and Beyond
+              </span>
             </h1>
 
             <motion.p
