@@ -1,6 +1,7 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { SiMedium } from "react-icons/si";
 
 export default function Navbar() {
   const [location] = useLocation();
@@ -43,8 +44,8 @@ export default function Navbar() {
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                <FaTwitter className="h-5 w-5" />
+              <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
+                <SiMedium className="h-5 w-5" />
               </a>
             </Button>
           </div>
