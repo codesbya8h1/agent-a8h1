@@ -82,7 +82,7 @@ export default function Hero() {
               </div>
             )}
             <img
-              src="/photos/abhi.jpeg"
+              src="/photos/profile.png"
               alt="Abhishek Kumar - Full Stack Engineer"
               className={`w-full h-full object-cover transition-opacity duration-300 ${
                 isLoading ? "opacity-0" : "opacity-100"
