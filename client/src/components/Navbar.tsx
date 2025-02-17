@@ -25,9 +25,11 @@ export default function Navbar() {
           <div className="hidden md:flex gap-4">
             {navItems.map((item) => (
               <Link key={item.href} href={item.href}>
-                <a className={`hover:text-primary transition-colors ${
-                  location === item.href ? "text-primary font-medium" : ""
-                }`}>
+                <a
+                  className={`hover:text-primary transition-colors ${
+                    location === item.href ? "text-primary font-medium" : ""
+                  }`}
+                >
                   {item.label}
                 </a>
               </Link>
@@ -36,22 +38,38 @@ export default function Navbar() {
 
           <div className="flex gap-2">
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/codesbya8h1"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaGithub className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.linkedin.com/in/a8h1/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaLinkedin className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://www.instagram.com/a8h1.visuals/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <FaInstagram className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>
-              <a href="https://medium.com" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://medium.com/@a8h1.can"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <SiMedium className="h-5 w-5" />
               </a>
             </Button>
