@@ -17,18 +17,25 @@ export default function About() {
             <Card>
               <CardContent className="pt-6">
                 <p className="text-lg leading-relaxed">
-                  Hi, I’m Abhishek Kumar—a curious and passionate software
-                  engineer. My journey began as a Data Engineer, but my
+                  Hi, I'm <strong>Abhishek Kumar</strong>—a curious and passionate software
+                  engineer. My journey began as a <strong>Data Engineer</strong>, but my
                   insatiable curiosity propelled me to dive into the realm of
-                  full-stack development. Today, I find myself at the forefront
-                  of Generative AI, exploring its boundless potential. While
-                  I’ve been in the industry for some time, I embrace every
-                  opportunity to learn with the enthusiasm of a beginner. I
-                  firmly resonate with Master Oogway’s wisdom from Kung Fu
-                  Panda: **_“There’s always something to learn, even for the
-                  master.”_** Though it originates from a movie, this philosophy
+                  <strong> full-stack development</strong>. Today, I find myself at the forefront
+                  of <strong>Generative AI</strong>, exploring its boundless potential. While
+                  I've been in the industry for some time, I embrace every
+                  opportunity to learn with the enthusiasm of a beginner.
+                </p>
+                <p className="text-lg leading-relaxed mt-4">
+                  I firmly resonate with Master Oogway's wisdom from Kung Fu
+                  Panda: <em>"There's always something to learn, even for the
+                  master."</em>
+                </p>
+                <p className="text-lg leading-relaxed mt-4">
+                  Though it originates from a movie, this philosophy
                   profoundly aligns with my approach to growth and learning.
-                  **My vision:** To create something that outlives me and serves
+                </p>
+                <p className="text-lg leading-relaxed mt-4">
+                  <strong>My vision:</strong> To create something that outlives me and serves
                   those in need.
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
