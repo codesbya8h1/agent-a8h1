@@ -5,6 +5,19 @@ import { useState } from "react";
 
 export default function Hero() {
   const [imageError, setImageError] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const handleImageLoad = () => {
+    console.log('Image loaded successfully');
+    setIsLoading(false);
+    setImageError(false);
+  };
+
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    console.error('Image failed to load:', e);
+    setIsLoading(false);
+    setImageError(true);
+  };
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -64,16 +77,20 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
+            {isLoading && (
+              <div className="absolute inset-0 bg-muted flex items-center justify-center">
+                Loading...
+              </div>
+            )}
             {!imageError ? (
               <img
-                src="photos/abhi.jpeg"
+                src={`${import.meta.env.VITE_PUBLIC_URL || ''}/photos/abhi.jpeg`}
                 alt="Abhishek Kumar - Full Stack Engineer"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  console.error('Image failed to load:', e);
-                  setImageError(true);
-                }}
-                onLoad={() => setImageError(false)}
+                className={`w-full h-full object-cover transition-opacity duration-300 ${
+                  isLoading ? 'opacity-0' : 'opacity-100'
+                }`}
+                onError={handleImageError}
+                onLoad={handleImageLoad}
               />
             ) : (
               <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
