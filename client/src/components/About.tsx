@@ -27,8 +27,8 @@ export default function About() {
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
                   I firmly resonate with Master Oogway's wisdom from Kung Fu
-                  Panda: <em>"There's always something to learn, even for the
-                  master."</em>
+                  Panda: <strong><em>"There's always something to learn, even for the
+                  master."</em></strong>
                 </p>
                 <p className="text-lg leading-relaxed mt-4">
                   Though it originates from a movie, this philosophy
