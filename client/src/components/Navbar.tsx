@@ -1,6 +1,6 @@
 import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
-import { FaGithub, FaLinkedin } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { SiMedium } from "react-icons/si";
 
 export default function Navbar() {
@@ -43,6 +43,11 @@ export default function Navbar() {
             <Button variant="ghost" size="icon" asChild>
               <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
                 <FaLinkedin className="h-5 w-5" />
+              </a>
+            </Button>
+            <Button variant="ghost" size="icon" asChild>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">
+                <FaInstagram className="h-5 w-5" />
               </a>
             </Button>
             <Button variant="ghost" size="icon" asChild>

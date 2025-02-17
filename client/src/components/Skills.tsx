@@ -5,10 +5,10 @@ import { Progress } from "@/components/ui/progress";
 const skills = [
   { name: "Data Engineering", progress: 90 },
   { name: "Backend Development", progress: 80 },
-  { name: "Frontend Development", progress: 60 },
+  { name: "frontend Development", progress: 60 },
   { name: "Generative AI", progress: 80 },
   { name: "Databases", progress: 90 },
-  { name: "Photography", progress: 95 },
+  { name: "Photography", progress: 70 },
 ];
 
 export default function Skills() {
