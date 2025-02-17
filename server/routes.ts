@@ -3,13 +3,8 @@ import { createServer } from "http";
 import { storage } from "./storage";
 import { insertMessageSchema } from "@shared/schema";
 import { z } from "zod";
-import { setupAuth } from "./auth";
 
 export async function registerRoutes(app: Express) {
-  // Set up authentication and get the requireAdmin middleware
-  const { requireAdmin } = setupAuth(app);
-
-  // Existing routes
   app.post("/api/contact", async (req, res) => {
     try {
       const message = insertMessageSchema.parse(req.body);
