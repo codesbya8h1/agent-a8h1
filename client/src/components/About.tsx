@@ -44,8 +44,8 @@ export default function About() {
                   enjoying a game of <strong>cricket in the summer</strong>, exploring new
                   destinations across the globe, or capturing breathtaking views with my
                   camera and drone. As a <strong>firm believer in healthy living</strong>,
-                  I maintain a consistent workout routine, never going more than 3-4 days
-                  without some form of physical activity.
+                  I maintain a consistent workout routine, making sure to exercise at least
+                  <strong> 3-4 days every week</strong>, whether it's at the gym or enjoying outdoor activities.
                 </p>
               </CardContent>
             </Card>
