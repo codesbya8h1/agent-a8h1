@@ -9,10 +9,20 @@ app.use(express.urlencoded({ extended: false }));
 
 // Security headers and CORS for Replit
 app.use((req, res, next) => {
+  // Allow requests from any origin in development
+  const allowedOrigins = [
+    "https://" + process.env.REPL_SLUG + "." + process.env.REPL_OWNER + ".repl.co",
+    "http://localhost:5000"
+  ];
+
+  const origin = req.headers.origin;
+  if (origin && allowedOrigins.includes(origin)) {
+    res.setHeader("Access-Control-Allow-Origin", origin);
+  }
+
   res.setHeader("X-Content-Type-Options", "nosniff");
-  res.setHeader("X-Frame-Options", "SAMEORIGIN"); // Changed from DENY to allow Replit iframe
+  res.setHeader("X-Frame-Options", "SAMEORIGIN");
   res.setHeader("X-XSS-Protection", "1; mode=block");
-  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
   res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
   next();
