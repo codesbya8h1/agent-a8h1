@@ -12,6 +12,7 @@ app.use((req, res, next) => {
   // Allow requests from any origin in development
   const allowedOrigins = [
     "https://" + process.env.REPL_SLUG + "." + process.env.REPL_OWNER + ".repl.co",
+    "https://personal-portfolio-a8h1can.replit.app",
     "http://localhost:5000"
   ];
 
@@ -77,21 +78,26 @@ app.use((req, res, next) => {
       res.status(status).json({ message });
     });
 
-    // Setup Vite in development and static file serving in production
-    if (process.env.NODE_ENV === "production") {
+    // Check if we're in production mode
+    const isProduction = process.env.NODE_ENV === "production";
+    console.log(`Running in ${isProduction ? 'production' : 'development'} mode`);
+
+    if (isProduction) {
       // In production, serve the static files from the dist/public directory
-      app.use(express.static(path.join(process.cwd(), "dist", "public")));
+      const distPath = path.join(process.cwd(), "dist", "public");
+      console.log('Serving static files from:', distPath);
+
+      app.use(express.static(distPath));
 
       // Serve index.html for all routes in production (SPA fallback)
       app.get("*", (_req, res) => {
-        res.sendFile(path.join(process.cwd(), "dist", "public", "index.html"));
+        res.sendFile(path.join(distPath, "index.html"));
       });
     } else {
       await setupVite(app, server);
     }
 
     // ALWAYS serve the app on port 5000
-    // this serves both the API and the client
     const port = Number(process.env.PORT || 5000);
     server.listen(port, "0.0.0.0", () => {
       log(`Server running at http://0.0.0.0:${port}`);
