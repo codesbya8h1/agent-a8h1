@@ -1,8 +1,11 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function Hero() {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
       <div className="container mx-auto px-4">
@@ -61,15 +64,22 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
-            <img
-              src="photos/abhi.jpeg"
-              alt="Abhishek Kumar - Full Stack Engineer"
-              className="w-full h-full object-cover"
-              onError={(e) => {
-                console.error('Image failed to load:', e);
-                e.currentTarget.src = 'https://via.placeholder.com/800';
-              }}
-            />
+            {!imageError ? (
+              <img
+                src="photos/abhi.jpeg"
+                alt="Abhishek Kumar - Full Stack Engineer"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  console.error('Image failed to load:', e);
+                  setImageError(true);
+                }}
+                onLoad={() => setImageError(false)}
+              />
+            ) : (
+              <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
+                Failed to load image
+              </div>
+            )}
           </motion.div>
         </div>
       </div>
