@@ -22,6 +22,7 @@ export default function Hero() {
   // Get the current hostname to handle both development and production
   const baseUrl = window.location.origin;
   const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
+  const placeholderUrl = "https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop";
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -97,9 +98,16 @@ export default function Hero() {
                 onLoad={handleImageLoad}
               />
             ) : (
-              <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
-                Image not found. Please ensure the image exists at {imageUrl}
-              </div>
+              <img
+                src={placeholderUrl}
+                alt="Technology Placeholder"
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  // If even the placeholder fails, show a colored background
+                  e.currentTarget.style.display = 'none';
+                  e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-primary/20', 'to-primary/40');
+                }}
+              />
             )}
           </motion.div>
         </div>
