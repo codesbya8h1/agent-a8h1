@@ -67,15 +67,17 @@ export default function About() {
                 <h3 className="text-3xl font-bold mb-2">10+</h3>
                 <p className="text-muted-foreground">Years Experience</p>
               </Card>
-              
+
               <Card className="p-6">
                 <h3 className="text-3xl font-bold mb-2">7</h3>
                 <p className="text-muted-foreground">Companies Worked With</p>
-              </Card> */}
+              </Card>
+
               <Card className="p-6">
                 <h3 className="text-3xl font-bold mb-2">20+</h3>
                 <p className="text-muted-foreground">Projects Worked On</p>
               </Card>
+
               <Card className="p-6">
                 <h3 className="text-3xl font-bold mb-2">3</h3>
                 <p className="text-muted-foreground">Countries Worked In</p>
