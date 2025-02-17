@@ -26,6 +26,8 @@ export default function Hero() {
   const placeholderUrl =
     "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?q=80&w=1000&auto=format&fit=crop";
 
+  console.log("Attempting to load image from:", imageUrl); // Debug log
+
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
       <div className="container mx-auto px-4">
@@ -89,17 +91,16 @@ export default function Hero() {
                 Loading...
               </div>
             )}
-            {!imageError ? (
-              <img
-                src={imageUrl}
-                alt="Abhishek Kumar - Full Stack Engineer"
-                className={`w-full h-full object-cover transition-opacity duration-300 ${
-                  isLoading ? "opacity-0" : "opacity-100"
-                }`}
-                onError={handleImageError}
-                onLoad={handleImageLoad}
-              />
-            ) : (
+            <img
+              src={imageUrl}
+              alt="Abhishek Kumar - Full Stack Engineer"
+              className={`w-full h-full object-cover transition-opacity duration-300 ${
+                isLoading ? "opacity-0" : "opacity-100"
+              }`}
+              onError={handleImageError}
+              onLoad={handleImageLoad}
+            />
+            {imageError && (
               <img
                 src={placeholderUrl}
                 alt="Technology Placeholder"
