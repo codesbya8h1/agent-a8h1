@@ -35,7 +35,7 @@ const companies = [
         fill="currentColor"
         className="w-8 h-8"
       >
-        <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" />
+        <path d="M2 2L8 12L2 22H6L12 12L6 2H2Z M12 2L18 12L12 22H16L22 12L16 2H12Z" />
       </svg>
     ),
     url: "https://www.blackline.com/",
