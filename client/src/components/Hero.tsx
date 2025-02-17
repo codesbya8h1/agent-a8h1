@@ -22,7 +22,7 @@ export default function Hero() {
   // Get the current hostname to handle both development and production
   const baseUrl = window.location.origin;
   const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
-  const placeholderUrl = "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=1000&auto=format&fit=crop";
+  const placeholderUrl = "https://images.unsplash.com/photo-1676299061701-69e8500f2e55?q=80&w=1000&auto=format&fit=crop";
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
