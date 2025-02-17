@@ -68,8 +68,8 @@ export default function About() {
                 <p className="text-muted-foreground">Years Experience</p>
               </Card>
               <Card className="p-6">
-                <h3 className="text-3xl font-bold mb-2">500+</h3>
-                <p className="text-muted-foreground">Code Contributions</p>
+                <h3 className="text-3xl font-bold mb-2">20+</h3>
+                <p className="text-muted-foreground">Projects Worked</p>
               </Card>
               <Card className="p-6">
                 <h3 className="text-3xl font-bold mb-2">50+</h3>
