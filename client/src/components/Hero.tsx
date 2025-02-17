@@ -15,15 +15,13 @@ export default function Hero() {
 
   const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
     console.error('Image failed to load:', e);
-    // Log the attempted URL for debugging
-    console.error('Attempted image URL:', e.currentTarget.src);
     setIsLoading(false);
     setImageError(true);
   };
 
-  const imageUrl = import.meta.env.VITE_PUBLIC_URL 
-    ? `${import.meta.env.VITE_PUBLIC_URL}/photos/abhi.jpeg`
-    : '/photos/abhi.jpeg';
+  // Get the current hostname to handle both development and production
+  const baseUrl = window.location.origin;
+  const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -100,7 +98,7 @@ export default function Hero() {
               />
             ) : (
               <div className="w-full h-full bg-muted flex items-center justify-center text-muted-foreground">
-                Failed to load image at path: {imageUrl}
+                Image not found. Please ensure the image exists at {imageUrl}
               </div>
             )}
           </motion.div>
