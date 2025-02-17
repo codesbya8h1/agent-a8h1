@@ -5,6 +5,7 @@ import { insertMessageSchema } from "@shared/schema";
 import { z } from "zod";
 
 export async function registerRoutes(app: Express) {
+  // API Routes
   app.post("/api/contact", async (req, res) => {
     try {
       const message = insertMessageSchema.parse(req.body);
@@ -25,7 +26,8 @@ export async function registerRoutes(app: Express) {
       const data = await response.json();
       res.json(data);
     } catch (err) {
-      res.status(500).json({ error: "Failed to fetch Medium feed" });
+      console.error('Error fetching Medium feed:', err);
+      res.status(500).json({ error: "Failed to fetch Medium feed", details: err.message });
     }
   });
 

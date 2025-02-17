@@ -68,10 +68,16 @@ app.use((req, res, next) => {
     });
 
     // Setup Vite in development and static file serving in production
-    if (app.get("env") === "development") {
-      await setupVite(app, server);
+    if (process.env.NODE_ENV === "production") {
+      // In production, serve the static files from the dist/public directory
+      app.use(express.static(path.join(process.cwd(), "dist", "public")));
+
+      // Serve index.html for all routes in production (SPA fallback)
+      app.get("*", (_req, res) => {
+        res.sendFile(path.join(process.cwd(), "dist", "public", "index.html"));
+      });
     } else {
-      serveStatic(app);
+      await setupVite(app, server);
     }
 
     // ALWAYS serve the app on port 5000
