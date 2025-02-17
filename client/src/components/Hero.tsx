@@ -21,9 +21,8 @@ export default function Hero() {
     setImageError(true);
   };
 
-  // Get the current hostname to handle both development and production
   const baseUrl = window.location.origin;
-  const imageUrl = `${baseUrl}/photos/abhi.png`;
+  const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
   const placeholderUrl =
     "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?q=80&w=1000&auto=format&fit=crop";
 
@@ -100,13 +99,12 @@ export default function Hero() {
                 onError={handleImageError}
                 onLoad={handleImageLoad}
               />
-            ) : ( 
+            ) : (
               <img
                 src={placeholderUrl}
                 alt="Technology Placeholder"
                 className="w-full h-full object-cover"
                 onError={(e) => {
-                  // If even the placeholder fails, show a colored background
                   e.currentTarget.style.display = "none";
                   e.currentTarget.parentElement?.classList.add(
                     "bg-gradient-to-br",
