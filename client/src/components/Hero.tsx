@@ -62,7 +62,7 @@ export default function Hero() {
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
             <img
-              src="https://picsum.photos/800/800"
+              src="/photos/abhi.jpeg"
               alt="Abhishek Kumar - Full Stack Engineer"
               className="w-full h-full object-cover"
             />
