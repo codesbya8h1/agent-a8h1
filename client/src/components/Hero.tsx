@@ -13,11 +13,10 @@ export default function Hero() {
   };
 
   const handleImageError = () => {
+    console.error("Failed to load image");
     setIsLoading(false);
     setImageError(true);
   };
-
-  const imageUrl = "/attached_assets/Screenshot 2025-02-17 at 10.41.16 AM.png";
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -83,8 +82,8 @@ export default function Hero() {
               </div>
             )}
             <img
-              src={imageUrl}
-              alt="Developer working at night"
+              src="Screenshot 2025-02-17 at 10.41.16 AM.png"
+              alt="Abhishek Kumar - Full Stack Engineer"
               className={`w-full h-full object-cover transition-opacity duration-300 ${
                 isLoading ? "opacity-0" : "opacity-100"
               }`}
