@@ -9,7 +9,7 @@ export interface Photo {
 export const photos: Photo[] = [
   {
     id: 1,
-    url: "/photos/ambleside_sunset.jpg", // Fixed the comma to period
+    url: "/photos/ambleside_sunset.jpg",
     alt: "Ambleside Beach at Sunset - West Vancouver",
     category: "Landscape",
     date: "2025-02-17"
@@ -23,7 +23,7 @@ export const photos: Photo[] = [
   },
   {
     id: 3,
-    url: "/photos/sfu_light_bulb.jpg",
+    url: "/photos/sfu_light_bulbs.jpg", 
     alt: "SFU Burnaby Light Bulb pictures",
     category: "Architecture",
     date: "2025-02-15"
