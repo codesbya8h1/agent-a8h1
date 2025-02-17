@@ -8,25 +8,16 @@ export default function Hero() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
-    console.log("Image loaded successfully");
     setIsLoading(false);
     setImageError(false);
   };
 
-  const handleImageError = (
-    e: React.SyntheticEvent<HTMLImageElement, Event>,
-  ) => {
-    console.error("Image failed to load:", e);
+  const handleImageError = () => {
     setIsLoading(false);
     setImageError(true);
   };
 
-  const baseUrl = window.location.origin;
-  const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
-  const placeholderUrl =
-    "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?q=80&w=1000&auto=format&fit=crop";
-
-  console.log("Attempting to load image from:", imageUrl); // Debug log
+  const imageUrl = "/attached_assets/Screenshot 2025-02-17 at 10.41.16 AM.png";
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -93,28 +84,13 @@ export default function Hero() {
             )}
             <img
               src={imageUrl}
-              alt="Abhishek Kumar - Full Stack Engineer"
+              alt="Developer working at night"
               className={`w-full h-full object-cover transition-opacity duration-300 ${
                 isLoading ? "opacity-0" : "opacity-100"
               }`}
               onError={handleImageError}
               onLoad={handleImageLoad}
             />
-            {imageError && (
-              <img
-                src={placeholderUrl}
-                alt="Technology Placeholder"
-                className="w-full h-full object-cover"
-                onError={(e) => {
-                  e.currentTarget.style.display = "none";
-                  e.currentTarget.parentElement?.classList.add(
-                    "bg-gradient-to-br",
-                    "from-primary/20",
-                    "to-primary/40",
-                  );
-                }}
-              />
-            )}
           </motion.div>
         </div>
       </div>
