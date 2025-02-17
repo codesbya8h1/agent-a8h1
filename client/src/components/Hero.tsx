@@ -1,8 +1,17 @@
 import { motion } from "framer-motion";
 import { ArrowDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useEffect } from "react";
 
 export default function Hero() {
+  useEffect(() => {
+    // Test image loading
+    const img = new Image();
+    img.src = "/abhi.jpeg";
+    img.onload = () => console.log("Image loaded successfully:", img.src);
+    img.onerror = (e) => console.error("Image failed to load:", e);
+  }, []);
+
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
       <div className="container mx-auto px-4">
@@ -62,12 +71,17 @@ export default function Hero() {
             className="relative aspect-square rounded-lg overflow-hidden shadow-xl"
           >
             <img
-              src="photos/abhi.jpeg"
+              src="/abhi.jpeg"
               alt="Abhishek Kumar - Full Stack Engineer"
               className="w-full h-full object-cover"
               onError={(e) => {
-                console.error('Image failed to load:', e);
-                e.currentTarget.src = 'https://via.placeholder.com/800';
+                console.error("Image failed to load, trying fallback path");
+                // Try a different path if the first one fails
+                e.currentTarget.src = "abhi.jpeg";
+                e.currentTarget.onerror = () => {
+                  console.error("Both paths failed, using placeholder");
+                  e.currentTarget.src = "https://via.placeholder.com/800";
+                };
               }}
             />
           </motion.div>
