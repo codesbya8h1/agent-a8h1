@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { motion } from "framer-motion";
+import { useCart } from "@/lib/cart";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import { useToast } from "@/hooks/use-toast";
 import { photos } from "@/lib/photos";
 
 interface PrintOption {
@@ -19,11 +20,33 @@ const printOptions: PrintOption[] = [
 
 export default function PrintShop() {
   const [selectedSizes, setSelectedSizes] = useState<Record<number, string>>({});
+  const { addItem } = useCart();
+  const { toast } = useToast();
+
+  const handleAddToCart = (photoId: number) => {
+    const photo = photos.find((p) => p.id === photoId);
+    const selectedSize = selectedSizes[photoId];
+    const option = printOptions.find((opt) => opt.size === selectedSize);
+
+    if (!photo || !option) return;
+
+    addItem(photo, option.size, option.price);
+    setSelectedSizes((prev) => {
+      const newSizes = { ...prev };
+      delete newSizes[photoId];
+      return newSizes;
+    });
+
+    toast({
+      title: "Added to Cart",
+      description: `${photo.alt} (${option.size}) has been added to your cart.`,
+    });
+  };
 
   return (
     <div className="container mx-auto px-4 py-12">
       <h1 className="text-4xl font-bold mb-8">Print Shop</h1>
-      
+
       <div className="mb-8">
         <p className="text-lg text-muted-foreground">
           Each photograph is printed on premium archival paper, ensuring stunning quality and longevity.
@@ -66,6 +89,7 @@ export default function PrintShop() {
                 <Button 
                   className="w-full"
                   disabled={!selectedSizes[photo.id]}
+                  onClick={() => handleAddToCart(photo.id)}
                 >
                   Add to Cart - ${printOptions.find(
                     (opt) => opt.size === selectedSizes[photo.id]
