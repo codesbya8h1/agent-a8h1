@@ -8,21 +8,24 @@ export default function Hero() {
   const [isLoading, setIsLoading] = useState(true);
 
   const handleImageLoad = () => {
-    console.log('Image loaded successfully');
+    console.log("Image loaded successfully");
     setIsLoading(false);
     setImageError(false);
   };
 
-  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
-    console.error('Image failed to load:', e);
+  const handleImageError = (
+    e: React.SyntheticEvent<HTMLImageElement, Event>,
+  ) => {
+    console.error("Image failed to load:", e);
     setIsLoading(false);
     setImageError(true);
   };
 
   // Get the current hostname to handle both development and production
   const baseUrl = window.location.origin;
-  const imageUrl = `${baseUrl}/photos/abhi.jpeg`;
-  const placeholderUrl = "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?q=80&w=1000&auto=format&fit=crop";
+  const imageUrl = `${baseUrl}/photos/abhi.png`;
+  const placeholderUrl =
+    "https://images.unsplash.com/photo-1624996379697-f01d168b1a52?q=80&w=1000&auto=format&fit=crop";
 
   return (
     <section className="min-h-[calc(100vh-4rem)] flex flex-col justify-start relative py-16">
@@ -92,20 +95,24 @@ export default function Hero() {
                 src={imageUrl}
                 alt="Abhishek Kumar - Full Stack Engineer"
                 className={`w-full h-full object-cover transition-opacity duration-300 ${
-                  isLoading ? 'opacity-0' : 'opacity-100'
+                  isLoading ? "opacity-0" : "opacity-100"
                 }`}
                 onError={handleImageError}
                 onLoad={handleImageLoad}
               />
-            ) : (
+            ) : ( 
               <img
                 src={placeholderUrl}
                 alt="Technology Placeholder"
                 className="w-full h-full object-cover"
                 onError={(e) => {
                   // If even the placeholder fails, show a colored background
-                  e.currentTarget.style.display = 'none';
-                  e.currentTarget.parentElement?.classList.add('bg-gradient-to-br', 'from-primary/20', 'to-primary/40');
+                  e.currentTarget.style.display = "none";
+                  e.currentTarget.parentElement?.classList.add(
+                    "bg-gradient-to-br",
+                    "from-primary/20",
+                    "to-primary/40",
+                  );
                 }}
               />
             )}
