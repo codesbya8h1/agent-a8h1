@@ -10,20 +10,24 @@ import PrintShop from "@/pages/PrintShop";
 import Cart from "@/pages/Cart";
 import NotFound from "@/pages/not-found";
 import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 function Router() {
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <Navbar />
-      <Switch>
-        <Route path="/" component={Home} />
-        <Route path="/gallery" component={Gallery} />
-        <Route path="/blog" component={Blog} />
-        <Route path="/print-shop" component={PrintShop} />
-        <Route path="/cart" component={Cart} />
-        <Route component={NotFound} />
-      </Switch>
-    </>
+      <main className="flex-grow">
+        <Switch>
+          <Route path="/" component={Home} />
+          <Route path="/gallery" component={Gallery} />
+          <Route path="/blog" component={Blog} />
+          <Route path="/print-shop" component={PrintShop} />
+          <Route path="/cart" component={Cart} />
+          <Route component={NotFound} />
+        </Switch>
+      </main>
+      <Footer />
+    </div>
   );
 }
 
