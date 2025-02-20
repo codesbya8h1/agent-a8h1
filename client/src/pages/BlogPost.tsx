@@ -26,19 +26,19 @@ export default function BlogPost() {
     if (!content) return [];
 
     return content.split('\n\n').map((paragraph, index) => {
-      // Format situation headers
-      if (paragraph.startsWith('Situation ')) {
+      // Format situation headers (e.g., "Situation 1:")
+      if (/^Situation \d+:/.test(paragraph)) {
         return (
-          <h4 key={index} className="text-xl font-bold mt-6 mb-3 text-primary">
+          <h3 key={index} className="text-xl font-bold mt-8 mb-4">
             {paragraph}
-          </h4>
+          </h3>
         );
       }
 
       // Format numbered section headers (e.g., "1. Empathy:")
-      if (paragraph.match(/^\d+\.\s+[A-Za-z]+:/)) {
+      if (/^\d+\.\s+[A-Za-z]+:/.test(paragraph)) {
         return (
-          <h3 key={index} className="text-2xl font-bold mt-8 mb-4 text-primary">
+          <h3 key={index} className="text-xl font-bold mt-8 mb-4">
             {paragraph}
           </h3>
         );
@@ -48,18 +48,25 @@ export default function BlogPost() {
       if (paragraph.includes('Manager:') || paragraph.includes('Me:')) {
         const lines = paragraph.split('\n');
         return (
-          <div key={index} className="my-4 space-y-2 text-muted-foreground">
+          <div key={index} className="my-4 pl-4">
             {lines.map((line, lineIndex) => {
-              if (line.startsWith('Manager:') || line.startsWith('Me:')) {
-                const [speaker, ...textParts] = line.split(':');
+              const parts = line.split(':');
+              const speaker = parts[0];
+              const text = parts.slice(1).join(':');
+
+              if (speaker === 'Manager' || speaker === 'Me') {
                 return (
-                  <div key={lineIndex} className="flex gap-2">
+                  <p key={lineIndex} className="mb-2 text-muted-foreground">
                     <span className="font-medium">{speaker}:</span>
-                    <span>{textParts.join(':')}</span>
-                  </div>
+                    {text}
+                  </p>
                 );
               }
-              return <p key={lineIndex}>{line}</p>;
+              return (
+                <p key={lineIndex} className="text-muted-foreground">
+                  {line}
+                </p>
+              );
             })}
           </div>
         );
