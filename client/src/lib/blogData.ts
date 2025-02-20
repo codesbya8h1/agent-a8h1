@@ -1,0 +1,85 @@
+export interface BlogPost {
+  id: string;
+  title: string;
+  link: string;
+  thumbnail: string;
+  pubDate: string;
+  description: string;
+  content?: string;
+}
+
+export const blogPosts: BlogPost[] = [
+  {
+    id: "interview-your-hiring-manager",
+    title: "Interview your Hiring Manager",
+    link: "/blog/interview-your-hiring-manager",
+    thumbnail: "https://images.unsplash.com/photo-1521791136064-7986c2920216",
+    pubDate: "2025-02-20",
+    description: "Why you should interview your potential hiring manager and how to do it effectively.",
+    content: `You heard that right; if you're interviewing for a job role, you should also interview your potential hiring manager. Each company can and should provide this opportunity for candidates to interview their prospective hiring manager to get a sense of who they'll be working with. This isn't just a random idea; there's a backstory to this, based on my own experience.
+
+I had just completed my Masters and ventured into the Tech Industry, working for a mid-size company with a laid-back culture. It was ideal for someone like who, wanting stability with a family, preferably in the Southern or Midwest USA and don't care about working at big companies. However, my ambition led me to Silicon Valley, and after relentless efforts on platforms like LeetCode and Glassdoor, I landed a position in one of the FAANGs. Things seemed promising at first, but around six months in, the toxic team environment started to take a toll. I found myself dreading one-on-one meetings with my manager.
+
+Examples from My Experience:
+
+Situation 1:
+Manager: "How was your last week?"
+Me: "It was brutal; I don't think I had proper sleep."
+Manager: "Oh, I see. You know, when I was at your level, I once worked a whole week sleepless. On Monday, I mentioned it to my manager, and he said, 'This is how it works here.'"
+Me: (Shocked at the response, expecting empathy and getting something entirely different) "I see."
+
+Situation 2:
+I struggled to say no and ended up with tasks I couldn't handle. A colleague noticed my struggle and approached my manager, suggesting that some tasks should be removed from my plate.
+Manager: "If he has more on his plate, he should speak up, not you."
+
+Situation 3:
+My manager used inappropriate language in meetings, blaming me for issues I hadn't caused, merely because I was on call.
+
+Reflecting on this experience, I realized I should have sought a different team where the manager's work style and ethics aligned with mine. For newcomers in the industry chasing a job and big money, the focus often isn't on who they work with or their hiring manager's ethics and style. And that's understandable; initially, all you need is a job. But once you're in the industry, it's crucial to ask questions of your potential hiring manager, such as:
+
+1. Empathy:
+- Can you share an example of a challenging situation within the team and how you supported your team members through it?
+- How do you handle conflicts or disagreements within the team, ensuring everyone's perspective is considered?
+- Can you tell me about a time when you had to accommodate a team member's personal situation or work-life balance needs?
+
+2. Friendliness:
+- What do you enjoy most about working with your team, and how do you foster a friendly and collaborative atmosphere?
+- How do you celebrate team successes and milestones?
+- Can you share an example of a team-building activity or event that your team participated in recently?
+
+3. Leadership:
+- What is your leadership philosophy, and how do you inspire your team to achieve their best?
+- How do you ensure that your team stays motivated and engaged in their work?
+- Can you share a challenging decision you had to make as a leader and how you handled it?
+
+4. Work-Life Balance:
+- How do you promote a healthy work-life balance within the team, especially during busy periods?
+- What is your approach to handling overwork and burnout among team members?
+
+5. Feedback and Growth:
+- How do you provide feedback to your team members, and how do you help them grow professionally?
+- Can you share a success story of a team member who significantly grew under your leadership?
+
+6. Team Development:
+- How do you identify and nurture talent within your team?
+- What steps do you take to ensure that team members have opportunities for skill development and career growth?
+
+These are some generic examples, and individuals can formulate their own questions to assess whether they want to work with this person. A good manager makes your work-life easier, and at some point, everyone realizes its importance. I hope this helps someone in need. Cheers!`,
+  },
+  {
+    id: "getting-started-with-generative-ai",
+    title: "Getting Started with Generative AI: A Developer's Guide",
+    link: "/blog/getting-started-with-generative-ai",
+    thumbnail: "https://images.unsplash.com/photo-1677442136019-21780ecad995",
+    pubDate: "2025-02-17",
+    description: "Dive into the world of Generative AI and learn how to integrate these powerful tools into your development workflow. We'll explore practical applications, best practices, and common pitfalls to avoid when working with AI models.",
+  },
+  {
+    id: "building-scalable-applications",
+    title: "Building Scalable Full-Stack Applications: Lessons Learned",
+    link: "/blog/building-scalable-applications",
+    thumbnail: "https://images.unsplash.com/photo-1618477247222-acbdb0e159b3",
+    pubDate: "2025-02-15",
+    description: "Drawing from years of experience in both startup and enterprise environments, I share key insights about building and maintaining scalable full-stack applications. Topics include architecture decisions, testing strategies, and deployment best practices.",
+  }
+];

@@ -1,11 +1,21 @@
 import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { blogPosts } from "./Blog";
+import { blogPosts } from "@/lib/blogData";
+
+interface BlogPost {
+  id: string;
+  title: string;
+  link: string;
+  thumbnail: string;
+  pubDate: string;
+  description: string;
+  content?: string;
+}
 
 export default function BlogPost() {
   const [location] = useLocation();
   const postId = location.split("/blog/")[1];
-  const post = blogPosts.find(p => p.id === postId);
+  const post = blogPosts.find((p: BlogPost) => p.id === postId);
 
   if (!post) {
     return <div className="container mx-auto px-4 py-12">Post not found</div>;
