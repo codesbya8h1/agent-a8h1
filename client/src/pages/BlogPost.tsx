@@ -1,6 +1,7 @@
 import { useLocation } from "wouter";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { blogPosts } from "@/lib/blogData";
+import { cn } from "@/lib/utils";
 
 interface BlogPost {
   id: string;
@@ -21,73 +22,71 @@ export default function BlogPost() {
     return <div className="container mx-auto px-4 py-12">Post not found</div>;
   }
 
-  // Function to process the content and add proper formatting
   const formatContent = (content: string) => {
     if (!content) return [];
 
-    return content.split('\n\n').map((paragraph, index) => {
-      // Format situation headers (e.g., "Situation 1:")
-      if (/^Situation \d+:/.test(paragraph)) {
-        return (
-          <h3 key={index} className="text-xl font-bold mt-8 mb-4">
-            {paragraph}
+    const lines = content.split('\n');
+    const formattedContent: JSX.Element[] = [];
+    let currentParagraph: string[] = [];
+    let key = 0;
+
+    const flushParagraph = () => {
+      if (currentParagraph.length > 0) {
+        formattedContent.push(
+          <p key={key++} className="text-muted-foreground my-4 leading-relaxed">
+            {currentParagraph.join('\n')}
+          </p>
+        );
+        currentParagraph = [];
+      }
+    };
+
+    lines.forEach(line => {
+      // Headers
+      if (line.startsWith('# ')) {
+        flushParagraph();
+        formattedContent.push(
+          <h1 key={key++} className="text-3xl font-bold mt-8 mb-4">
+            {line.substring(2)}
+          </h1>
+        );
+      } else if (line.startsWith('## ')) {
+        flushParagraph();
+        formattedContent.push(
+          <h2 key={key++} className="text-2xl font-bold mt-8 mb-4">
+            {line.substring(3)}
+          </h2>
+        );
+      } else if (line.startsWith('### ')) {
+        flushParagraph();
+        formattedContent.push(
+          <h3 key={key++} className="text-xl font-bold mt-6 mb-3">
+            {line.substring(4)}
           </h3>
         );
       }
-
-      // Format numbered section headers (e.g., "1. Empathy:")
-      if (/^\d+\.\s+[A-Za-z]+:/.test(paragraph)) {
-        return (
-          <h3 key={index} className="text-xl font-bold mt-8 mb-4">
-            {paragraph}
-          </h3>
-        );
-      }
-
-      // Format dialogue sections
-      if (paragraph.includes('Manager:') || paragraph.includes('Me:')) {
-        const lines = paragraph.split('\n');
-        return (
-          <div key={index} className="my-4 pl-4">
-            {lines.map((line, lineIndex) => {
-              const parts = line.split(':');
-              const speaker = parts[0];
-              const text = parts.slice(1).join(':');
-
-              if (speaker === 'Manager' || speaker === 'Me') {
-                return (
-                  <p key={lineIndex} className="mb-2 text-muted-foreground">
-                    <span className="font-medium">{speaker}:</span>
-                    {text}
-                  </p>
-                );
-              }
-              return (
-                <p key={lineIndex} className="text-muted-foreground">
-                  {line}
-                </p>
-              );
-            })}
-          </div>
-        );
-      }
-
-      // Format bullet points
-      if (paragraph.startsWith('- ')) {
-        return (
-          <li key={index} className="ml-6 my-2 text-muted-foreground">
-            {paragraph.substring(2)}
+      // Bullet points
+      else if (line.startsWith('- ')) {
+        formattedContent.push(
+          <li key={key++} className="ml-6 my-2 text-muted-foreground">
+            {line.substring(2)}
           </li>
         );
       }
-
-      // Default paragraph formatting (normal weight)
-      return (
-        <p key={index} className="my-4 leading-relaxed text-muted-foreground">
-          {paragraph}
-        </p>
-      );
+      // Empty line - end of paragraph
+      else if (line.trim() === '') {
+        flushParagraph();
+      }
+      // Regular line - add to current paragraph
+      else {
+        currentParagraph.push(line);
+      }
     });
+
+    // Flush any remaining paragraph
+    flushParagraph();
+
+    return formattedContent;
   };
 
   return (
