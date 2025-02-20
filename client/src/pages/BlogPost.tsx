@@ -26,14 +26,14 @@ export default function BlogPost() {
     if (!content) return [];
 
     return content.split('\n\n').map((paragraph, index) => {
-      // Format dialogue
+      // Format dialogue with quotes
       if (paragraph.includes(':')) {
         const [speaker, text] = paragraph.split(':');
         if (speaker === 'Manager' || speaker === 'Me') {
           return (
             <div key={index} className="my-4 pl-4 border-l-4 border-primary/20">
-              <span className="font-bold">{speaker}:</span>
-              <span className="italic">{text}</span>
+              <span className="font-semibold">{speaker}:</span>
+              <span className="italic ml-1">{text}</span>
             </div>
           );
         }
@@ -48,10 +48,10 @@ export default function BlogPost() {
         );
       }
 
-      // Format bullet points (keep them as regular text)
+      // Format bullet points as regular text with proper indentation
       if (paragraph.startsWith('- ')) {
         return (
-          <li key={index} className="ml-6 my-2">
+          <li key={index} className="ml-6 my-2 text-muted-foreground">
             {paragraph.substring(2)}
           </li>
         );
@@ -67,7 +67,11 @@ export default function BlogPost() {
       }
 
       // Default paragraph formatting (normal weight)
-      return <p key={index} className="my-4 leading-relaxed text-muted-foreground">{paragraph}</p>;
+      return (
+        <p key={index} className="my-4 leading-relaxed text-muted-foreground">
+          {paragraph}
+        </p>
+      );
     });
   };
 
