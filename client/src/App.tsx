@@ -6,6 +6,7 @@ import { CartProvider } from "@/lib/cart";
 import Home from "@/pages/Home";
 import Gallery from "@/pages/Gallery";
 import Blog from "@/pages/Blog";
+import BlogPost from "@/pages/BlogPost";
 import PrintShop from "@/pages/PrintShop";
 import Cart from "@/pages/Cart";
 import NotFound from "@/pages/not-found";
@@ -21,6 +22,7 @@ function Router() {
           <Route path="/" component={Home} />
           <Route path="/gallery" component={Gallery} />
           <Route path="/blog" component={Blog} />
+          <Route path="/blog/:id" component={BlogPost} />
           <Route path="/print-shop" component={PrintShop} />
           <Route path="/cart" component={Cart} />
           <Route component={NotFound} />
