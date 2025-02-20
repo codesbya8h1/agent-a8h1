@@ -26,17 +26,13 @@ export default function BlogPost() {
     if (!content) return [];
 
     return content.split('\n\n').map((paragraph, index) => {
-      // Format dialogue with quotes
-      if (paragraph.includes(':')) {
-        const [speaker, text] = paragraph.split(':');
-        if (speaker === 'Manager' || speaker === 'Me') {
-          return (
-            <div key={index} className="my-4 pl-4 border-l-4 border-primary/20">
-              <span className="font-semibold">{speaker}:</span>
-              <span className="italic ml-1">{text}</span>
-            </div>
-          );
-        }
+      // Format situation headers
+      if (paragraph.startsWith('Situation ')) {
+        return (
+          <h4 key={index} className="text-xl font-bold mt-6 mb-3 text-primary">
+            {paragraph}
+          </h4>
+        );
       }
 
       // Format numbered section headers (e.g., "1. Empathy:")
@@ -48,21 +44,33 @@ export default function BlogPost() {
         );
       }
 
-      // Format bullet points as regular text with proper indentation
+      // Format dialogue sections
+      if (paragraph.includes('Manager:') || paragraph.includes('Me:')) {
+        const lines = paragraph.split('\n');
+        return (
+          <div key={index} className="my-4 space-y-2 text-muted-foreground">
+            {lines.map((line, lineIndex) => {
+              if (line.startsWith('Manager:') || line.startsWith('Me:')) {
+                const [speaker, ...textParts] = line.split(':');
+                return (
+                  <div key={lineIndex} className="flex gap-2">
+                    <span className="font-medium">{speaker}:</span>
+                    <span>{textParts.join(':')}</span>
+                  </div>
+                );
+              }
+              return <p key={lineIndex}>{line}</p>;
+            })}
+          </div>
+        );
+      }
+
+      // Format bullet points
       if (paragraph.startsWith('- ')) {
         return (
           <li key={index} className="ml-6 my-2 text-muted-foreground">
             {paragraph.substring(2)}
           </li>
-        );
-      }
-
-      // Format situation headers
-      if (paragraph.startsWith('Situation ')) {
-        return (
-          <h4 key={index} className="text-xl font-bold mt-6 mb-3 text-primary">
-            {paragraph}
-          </h4>
         );
       }
 
