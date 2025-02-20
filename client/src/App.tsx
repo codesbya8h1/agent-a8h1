@@ -1,8 +1,10 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { CartProvider } from "@/lib/cart";
+import { AnimatePresence } from "framer-motion";
+import LandingPage from "@/pages/LandingPage";
 import Home from "@/pages/Home";
 import Gallery from "@/pages/Gallery";
 import Blog from "@/pages/Blog";
@@ -14,21 +16,26 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
 function Router() {
+  const [location] = useLocation();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
+      {location !== "/" && <Navbar />}
       <main className="flex-grow">
-        <Switch>
-          <Route path="/" component={Home} />
-          <Route path="/gallery" component={Gallery} />
-          <Route path="/blog" component={Blog} />
-          <Route path="/blog/:id" component={BlogPost} />
-          <Route path="/print-shop" component={PrintShop} />
-          <Route path="/cart" component={Cart} />
-          <Route component={NotFound} />
-        </Switch>
+        <AnimatePresence mode="wait">
+          <Switch>
+            <Route path="/" component={LandingPage} />
+            <Route path="/home" component={Home} />
+            <Route path="/gallery" component={Gallery} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/blog/:id" component={BlogPost} />
+            <Route path="/print-shop" component={PrintShop} />
+            <Route path="/cart" component={Cart} />
+            <Route component={NotFound} />
+          </Switch>
+        </AnimatePresence>
       </main>
-      <Footer />
+      {location !== "/" && <Footer />}
     </div>
   );
 }
