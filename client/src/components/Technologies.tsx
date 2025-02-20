@@ -21,6 +21,7 @@ import {
   SiPerplexity,
   SiLangchain,
   SiNeo4J,
+  SiAmazonredshift,
 } from "react-icons/si";
 
 const technologies = [
@@ -28,6 +29,7 @@ const technologies = [
     category: "Databases",
     items: [
       { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "Redshift", icon: SiAmazonredshift },
       { name: "MySQL", icon: SiMysql },
       { name: "MongoDB", icon: SiMongodb },
       { 
