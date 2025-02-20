@@ -2,12 +2,13 @@ import { Link, useLocation } from "wouter";
 import { Button } from "@/components/ui/button";
 import { FaGithub, FaLinkedin, FaInstagram } from "react-icons/fa";
 import { SiMedium } from "react-icons/si";
+import ThemeSwitcher from "./ThemeSwitcher";
 
 export default function Navbar() {
   const [location] = useLocation();
 
   const navItems = [
-    { href: "/", label: "Home" },
+    { href: "/home", label: "Home" },
     // Gallery temporarily disabled
     // { href: "/gallery", label: "Gallery" },
     { href: "/blog", label: "Blog" },
@@ -18,7 +19,7 @@ export default function Navbar() {
   return (
     <nav className="border-b">
       <div className="container mx-auto px-4 h-16 flex items-center justify-between">
-        <Link href="/">
+        <Link href="/home">
           <a className="font-bold text-xl">Portfolio</a>
         </Link>
 
@@ -37,7 +38,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          <div className="flex gap-2">
+          <div className="flex items-center gap-2">
+            <ThemeSwitcher />
             <Button variant="ghost" size="icon" asChild>
               <a
                 href="https://github.com/codesbya8h1"
