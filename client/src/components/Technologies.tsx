@@ -20,9 +20,7 @@ import {
   SiGooglegemini,
   SiPerplexity,
   SiLangchain,
-  SiGoogleanalytics,
-  SiAmazondynamodb,
-  SiRedis,
+  SiNeo4J,
 } from "react-icons/si";
 
 const technologies = [
@@ -54,8 +52,7 @@ const technologies = [
           <path d="M16.5 14.5c0 .42-.1.8-.32 1.13l2.5 2.5c.58-.65.98-1.48 1.12-2.4H21v-2.5h-1.2c-.11-.74-.43-1.41-.9-1.98l-1.72 1.72c.2.33.32.71.32 1.13zm-2.5 0c0-1.1-.89-2-2-2s-2 .9-2 2 .9 2 2 2 2-.89 2-2zM7.1 8.7L5.38 6.98C4.82 7.61 4.44 8.36 4.28 9.18H3v2.5h1.28c.11.74.43 1.41.9 1.98l1.72-1.72c-.2-.33-.32-.71-.32-1.13 0-1.1.89-2 2-2s2 .9 2 2-.9 2-2 2c-.42 0-.8-.1-1.13-.32l-2.5 2.5c.65.58 1.48.98 2.4 1.12V21h2.5v-1.2c.74-.11 1.41-.43 1.98-.9l-1.72-1.72c-.33.2-.71.32-1.13.32-1.1 0-2-.89-2-2z"/>
         </svg>
       )},
-      { name: "DynamoDB", icon: SiAmazondynamodb },
-      { name: "Redis", icon: SiRedis },
+      { name: "Neo4j", icon: SiNeo4J },
     ],
   },
   {
@@ -87,7 +84,7 @@ const technologies = [
     items: [
       { name: "React", icon: SiReact },
       { name: "TypeScript", icon: SiTypescript },
-      { name: "HTML5", icon: SiHtml5 },
+      { name: "HTML5", icon: SiHtml5},
     ],
   },
   {
@@ -97,7 +94,15 @@ const technologies = [
       { name: "Google Gemini", icon: SiGooglegemini },
       { name: "Perplexity", icon: SiPerplexity },
       { name: "LangChain", icon: SiLangchain },
-      { name: "Analytics", icon: SiGoogleanalytics },
+      { name: "LlamaIndex", icon: () => (
+        <svg
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          className="w-12 h-12"
+        >
+          <path d="M12 2L2 19h20L12 2zm0 4l6.5 11h-13L12 6z"/>
+        </svg>
+      )},
     ],
   },
 ];
@@ -116,23 +121,23 @@ export default function Technologies() {
             Tools & Technologies
           </h2>
 
-          <div className="grid gap-8">
+          <div className="grid gap-8 md:grid-cols-2">
             {technologies.map((tech) => (
-              <Card key={tech.category}>
+              <Card key={tech.category} className="h-full">
                 <CardHeader>
                   <CardTitle className="text-xl">{tech.category}</CardTitle>
                 </CardHeader>
                 <CardContent>
-                  <div className="flex flex-wrap gap-8 items-center justify-center">
+                  <div className="grid grid-cols-2 sm:grid-cols-3 gap-6">
                     {tech.items.map((item) => (
                       <motion.div
                         key={item.name}
-                        className="flex flex-col items-center gap-2"
-                        whileHover={{ scale: 1.1 }}
+                        className="flex flex-col items-center justify-center p-4 rounded-lg border bg-card hover:bg-accent transition-colors"
+                        whileHover={{ scale: 1.05 }}
                         transition={{ duration: 0.2 }}
                       >
                         <item.icon className="w-12 h-12 text-muted-foreground hover:text-primary transition-colors" />
-                        <span className="text-sm text-muted-foreground">
+                        <span className="text-sm text-muted-foreground mt-2 text-center">
                           {item.name}
                         </span>
                       </motion.div>
