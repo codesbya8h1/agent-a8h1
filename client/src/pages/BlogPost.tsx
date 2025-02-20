@@ -29,7 +29,7 @@ export default function BlogPost() {
         }
       }
 
-      // Format section headers
+      // Format numbered section headers (e.g., "1. Empathy:")
       if (paragraph.match(/^\d+\.\s+[A-Za-z]+:/)) {
         return (
           <h3 key={index} className="text-2xl font-bold mt-8 mb-4 text-primary">
@@ -38,11 +38,11 @@ export default function BlogPost() {
         );
       }
 
-      // Format bullet points
+      // Format bullet points (keep them as regular text)
       if (paragraph.startsWith('- ')) {
         return (
           <li key={index} className="ml-6 my-2">
-            <span className="font-bold">{paragraph.substring(2)}</span>
+            {paragraph.substring(2)}
           </li>
         );
       }
@@ -50,14 +50,14 @@ export default function BlogPost() {
       // Format situation headers
       if (paragraph.startsWith('Situation ')) {
         return (
-          <h4 key={index} className="text-xl font-semibold mt-6 mb-3">
+          <h4 key={index} className="text-xl font-bold mt-6 mb-3 text-primary">
             {paragraph}
           </h4>
         );
       }
 
-      // Default paragraph formatting
-      return <p key={index} className="my-4 leading-relaxed">{paragraph}</p>;
+      // Default paragraph formatting (normal weight)
+      return <p key={index} className="my-4 leading-relaxed text-muted-foreground">{paragraph}</p>;
     });
   };
 
