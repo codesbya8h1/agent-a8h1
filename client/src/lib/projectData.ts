@@ -18,12 +18,12 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Express", "Tailwind CSS", "OpenAI"]
   },
   {
-    id: "data-visualization-dashboard",
-    title: "Data Visualization Dashboard",
-    description: "Interactive dashboard for visualizing complex datasets using React and D3.js. Includes real-time updates and customizable charts.",
-    thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71",
-    githubUrl: "https://github.com/yourusername/data-viz-dashboard",
-    technologies: ["React", "D3.js", "TypeScript", "Material-UI"]
+    id: "python-code-visualizer",
+    title: "Python Code Visualizer",
+    description: "This project helps you visualize codes from a python file or a python project directory. The flow includes the entry point of the script of project and further execution calls between the methods in tree graph format.",
+    thumbnail: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a",
+    githubUrl: "https://github.com/codesbya8h1/code_visualizer",
+    technologies: ["Python", "NetworkX", "Graphviz", "Flask", "React"]
   },
   {
     id: "smart-task-manager",
