@@ -9,6 +9,7 @@ export default function Navbar() {
 
   const navItems = [
     { href: "/home", label: "Home" },
+    { href: "/projects", label: "Projects" },
     // Gallery temporarily disabled
     // { href: "/gallery", label: "Gallery" },
     { href: "/blog", label: "Blog" },
