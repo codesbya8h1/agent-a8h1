@@ -14,8 +14,7 @@ export const projects: Project[] = [
     title: "AI-Powered Portfolio",
     description: "A dynamic personal portfolio website built with React, Express, and AI-enhanced content generation. Features include dark mode, responsive design, and interactive components.",
     thumbnail: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97",
-    githubUrl: "https://github.com/yourusername/ai-portfolio",
-    liveUrl: "https://your-portfolio-url.com",
+    liveUrl: "https://personal-portfolio-a8h1can.replit.app",
     technologies: ["React", "TypeScript", "Express", "Tailwind CSS", "OpenAI"]
   },
   {
