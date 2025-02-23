@@ -12,37 +12,34 @@ export default function ThemeSwitcher() {
     document.documentElement.classList.add(theme);
   }, []);
 
-  const toggleTheme = (newTheme: "light" | "dark") => {
+  const toggleTheme = () => {
+    const newTheme = theme === "light" ? "dark" : "light";
     document.documentElement.classList.remove("light", "dark");
     document.documentElement.classList.add(newTheme);
     setTheme(newTheme);
   };
 
   return (
-    <div className="flex gap-2">
-      <motion.div whileHover={{ scale: 1.1 }}>
-        <Button
-          variant={theme === "light" ? "default" : "ghost"}
-          size="icon"
-          onClick={() => toggleTheme("light")}
-          className="rounded-full"
-        >
-          <Sun className="h-5 w-5" />
-          <span className="sr-only">Light mode</span>
-        </Button>
+    <Button
+      variant="outline"
+      size="default"
+      onClick={toggleTheme}
+      className="w-[80px] relative"
+    >
+      <motion.div
+        className="absolute inset-0 flex items-center justify-start p-1"
+        animate={{ justifyContent: theme === "light" ? "flex-start" : "flex-end" }}
+        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+      >
+        <div className="bg-primary rounded-full p-1">
+          {theme === "light" ? (
+            <Sun className="h-4 w-4 text-primary-foreground" />
+          ) : (
+            <Moon className="h-4 w-4 text-primary-foreground" />
+          )}
+        </div>
       </motion.div>
-      
-      <motion.div whileHover={{ scale: 1.1 }}>
-        <Button
-          variant={theme === "dark" ? "default" : "ghost"}
-          size="icon"
-          onClick={() => toggleTheme("dark")}
-          className="rounded-full"
-        >
-          <Moon className="h-5 w-5" />
-          <span className="sr-only">Dark mode</span>
-        </Button>
-      </motion.div>
-    </div>
+      <span className="sr-only">Toggle theme</span>
+    </Button>
   );
 }
