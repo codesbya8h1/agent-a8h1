@@ -21,23 +21,21 @@ export default function ThemeSwitcher() {
 
   return (
     <Button
-      variant="outline"
-      size="default"
+      variant="ghost"
+      size="icon"
       onClick={toggleTheme}
-      className="w-[80px] relative"
+      className="relative w-9 h-9 rounded-full"
     >
       <motion.div
-        className="absolute inset-0 flex items-center justify-start p-1"
+        className="absolute inset-0 flex items-center justify-start"
         animate={{ justifyContent: theme === "light" ? "flex-start" : "flex-end" }}
         transition={{ type: "spring", stiffness: 300, damping: 30 }}
       >
-        <div className="bg-primary rounded-full p-1">
-          {theme === "light" ? (
-            <Sun className="h-4 w-4 text-primary-foreground" />
-          ) : (
-            <Moon className="h-4 w-4 text-primary-foreground" />
-          )}
-        </div>
+        {theme === "light" ? (
+          <Sun className="h-5 w-5" />
+        ) : (
+          <Moon className="h-5 w-5" />
+        )}
       </motion.div>
       <span className="sr-only">Toggle theme</span>
     </Button>
