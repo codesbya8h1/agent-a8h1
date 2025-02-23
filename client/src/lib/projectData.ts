@@ -21,7 +21,7 @@ export const projects: Project[] = [
     id: "python-code-visualizer",
     title: "Python Code Visualizer",
     description: "This project helps you visualize codes from a python file or a python project directory. The flow includes the entry point of the script of project and further execution calls between the methods in tree graph format.",
-    thumbnail: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a",
+    thumbnail: "https://images.unsplash.com/photo-1618044733300-9472054094ee?q=80&w=1471&auto=format&fit=crop",
     githubUrl: "https://github.com/codesbya8h1/code_visualizer",
     technologies: ["Python", "NetworkX", "Graphviz", "Flask", "React"]
   },
