@@ -23,15 +23,6 @@ export const projects: Project[] = [
     description: "This project helps you visualize codes from a python file or a python project directory. The flow includes the entry point of the script of project and further execution calls between the methods in tree graph format.",
     thumbnail: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a",
     githubUrl: "https://github.com/codesbya8h1/code_visualizer",
-    technologies: ["Python", "NetworkX", "Graphviz", "Flask", "React"]
-  },
-  {
-    id: "smart-task-manager",
-    title: "Smart Task Manager",
-    description: "AI-enhanced task management system that helps prioritize and organize tasks efficiently. Features natural language processing for task input.",
-    thumbnail: "https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b",
-    githubUrl: "https://github.com/yourusername/smart-tasks",
-    liveUrl: "https://smart-tasks-demo.com",
-    technologies: ["Python", "FastAPI", "React", "MongoDB", "Machine Learning"]
+    technologies: ["Python", "LangGraph", "NetworkX", "Graphviz"]
   }
 ];
