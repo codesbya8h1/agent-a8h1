@@ -24,5 +24,13 @@ export const projects: Project[] = [
     thumbnail: "https://images.unsplash.com/photo-1580927752452-89d86da3fa0a",
     githubUrl: "https://github.com/codesbya8h1/code_visualizer",
     technologies: ["Python", "LangGraph", "NetworkX", "Graphviz"]
+  },
+  {
+    id: "clarityq",
+    title: "ClarityQ",
+    description: "A simple proof-of-concept application for asking questions that further clarifies the ambiguity of the original question. Helps improve question clarity and understanding through iterative refinement.",
+    thumbnail: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44",
+    githubUrl: "https://github.com/codesbya8h1/ClarityQ",
+    technologies: ["Python", "AI", "Question Processing", "NLP"]
   }
 ];
