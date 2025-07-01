@@ -78,6 +78,7 @@ const technologies = [
       { name: "Perplexity", icon: SiPerplexity },
       { name: "LangChain", icon: SiLangchain },
       { name: "LlamaIndex", icon: FileIcon },
+      { name: "MCP", icon: FileIcon },
     ],
   },
 ];
