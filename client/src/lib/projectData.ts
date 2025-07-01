@@ -32,5 +32,13 @@ export const projects: Project[] = [
     thumbnail: "https://images.unsplash.com/photo-1559526324-4b87b5e36e44",
     githubUrl: "https://github.com/codesbya8h1/ClarityQ",
     technologies: ["Python", "AI", "Question Processing", "NLP"]
+  },
+  {
+    id: "mcp-poc",
+    title: "Model Context Protocol POC",
+    description: "A proof-of-concept implementation exploring the Model Context Protocol (MCP) for educational purposes. Demonstrates communication patterns and protocol implementation between AI models and external systems.",
+    thumbnail: "https://images.unsplash.com/photo-1518709268805-4e9042af2176",
+    githubUrl: "https://github.com/codesbya8h1/mcp-poc",
+    technologies: ["Python", "Protocol Design", "API", "Educational"]
   }
 ];
