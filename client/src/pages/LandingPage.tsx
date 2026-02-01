@@ -23,7 +23,7 @@ export default function LandingPage() {
         transition={{ duration: 0.6 }}
         className="text-center px-4"
       >
-        <p className="text-2xl md:text-4xl font-serif italic text-primary mb-4">
+        <p className="text-2xl md:text-4xl font-serif italic text-foreground mb-4">
           "There's always something to learn, even for a master"
         </p>
         <p className="text-lg md:text-xl text-muted-foreground">
