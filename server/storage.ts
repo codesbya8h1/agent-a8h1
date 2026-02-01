@@ -24,4 +24,25 @@ export class DatabaseStorage implements IStorage {
   }
 }
 
-export const storage = new DatabaseStorage();
+// In-memory storage for development when database is not available
+export class InMemoryStorage implements IStorage {
+  private messages: Message[] = [];
+  private nextId = 1;
+
+  async createMessage(insertMessage: InsertMessage): Promise<Message> {
+    const message: Message = {
+      id: this.nextId++,
+      ...insertMessage,
+      createdAt: new Date()
+    };
+    this.messages.push(message);
+    return message;
+  }
+
+  async getMessages(): Promise<Message[]> {
+    return [...this.messages].sort((a, b) => a.createdAt.getTime() - b.createdAt.getTime());
+  }
+}
+
+// Use database storage if available, otherwise use in-memory storage
+export const storage = db ? new DatabaseStorage() : new InMemoryStorage();

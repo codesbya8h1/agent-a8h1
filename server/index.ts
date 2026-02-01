@@ -13,7 +13,10 @@ app.use((req, res, next) => {
   const allowedOrigins = [
     "https://" + process.env.REPL_SLUG + "." + process.env.REPL_OWNER + ".repl.co",
     "https://personal-portfolio-a8h1can.replit.app",
-    "http://localhost:5000"
+    "http://localhost:5000",
+    "http://localhost:5001",
+    "http://localhost:5002",
+    "http://localhost:5173",
   ];
 
   const origin = req.headers.origin;
@@ -97,11 +100,21 @@ app.use((req, res, next) => {
       await setupVite(app, server);
     }
 
-    // ALWAYS serve the app on port 5000
-    const port = Number(process.env.PORT || 5000);
-    server.listen(port, "0.0.0.0", () => {
-      log(`Server running at http://0.0.0.0:${port}`);
-    });
+    // Serve on PORT or 5000; if port is in use, try the next one
+    const desiredPort = Number(process.env.PORT || 5000);
+    const tryListen = (port: number) => {
+      server.listen(port, "0.0.0.0", () => {
+        log(`Server running at http://0.0.0.0:${port}`);
+      }).on("error", (err: NodeJS.ErrnoException) => {
+        if (err.code === "EADDRINUSE") {
+          log(`Port ${port} in use, trying ${port + 1}...`);
+          tryListen(port + 1);
+        } else {
+          throw err;
+        }
+      });
+    };
+    tryListen(desiredPort);
   } catch (error) {
     console.error("Failed to start server:", error);
     process.exit(1);
