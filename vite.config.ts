@@ -7,7 +7,12 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
+// For GitHub Pages: set BASE_PATH to /repo-name/ (e.g. /personal-portfolio/)
+// Leave unset for local dev or custom domain at root
+const base = process.env.BASE_PATH || "/";
+
 export default defineConfig({
+  base,
   plugins: [
     react(),
     runtimeErrorOverlay(),

@@ -1,4 +1,4 @@
-import { Switch, Route, useLocation } from "wouter";
+import { Router, Switch, Route, useLocation } from "wouter";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -16,7 +16,24 @@ import NotFound from "@/pages/not-found";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-function Router() {
+// Base path for GitHub Pages (e.g. /personal-portfolio). Empty for local dev or custom domain.
+const basePath = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
+
+function useBaseLocation(): ReturnType<typeof useLocation> {
+  const [pathname, navigate] = useLocation();
+  const normalized = !basePath
+    ? pathname
+    : pathname === basePath || pathname.startsWith(basePath + "/")
+      ? pathname.slice(basePath.length) || "/"
+      : pathname;
+  const setLocation = (path: string) => {
+    const to = path.startsWith("/") ? basePath + path : basePath + "/" + path;
+    navigate(to);
+  };
+  return [normalized, setLocation];
+}
+
+function RouterContent() {
   const [location] = useLocation();
 
   return (
@@ -46,7 +63,9 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <Router />
+        <Router hook={useBaseLocation}>
+          <RouterContent />
+        </Router>
         <Toaster />
       </CartProvider>
     </QueryClientProvider>
