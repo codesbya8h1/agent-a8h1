@@ -21,6 +21,7 @@ import {
   SiLangchain,
   SiNeo4J,
   SiAmazonredshift,
+  SiOllama,
 } from "react-icons/si";
 import { FileIcon, Database, MessageSquareText, ClipboardCheck, Cable } from "lucide-react";
 
@@ -32,7 +33,7 @@ const technologies = [
       { name: "Google Gemini", icon: SiGooglegemini },
       { name: "Perplexity", icon: SiPerplexity },
       { name: "LangChain", icon: SiLangchain },
-      { name: "LlamaIndex", icon: FileIcon },
+      { name: "LlamaIndex", icon: SiOllama },
       { name: "RAG", icon: Database },
       { name: "Context & Prompt Engineering", icon: MessageSquareText },
       { name: "AI Evaluation", icon: ClipboardCheck },
