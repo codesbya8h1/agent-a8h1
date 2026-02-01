@@ -88,7 +88,9 @@ const companies = [
         fill="currentColor"
         className="w-8 h-8"
       >
-        <path d="M12 2L2 7v10l10 5 10-5V7L12 2zm0 2.18l6.9 3.45L12 11.08 5.1 7.63 12 4.18zM4 8.82l7 3.5v7.36l-7-3.5V8.82zm9 10.86v-7.36l7-3.5v7.36l-7 3.5z" />
+        <rect x="2" y="4" width="12" height="3" rx="0.5" fill="#1a365d" />
+        <rect x="2" y="10" width="20" height="3" rx="0.5" fill="#4a7c9b" />
+        <rect x="2" y="16" width="16" height="3" rx="0.5" fill="#8fb3c9" />
       </svg>
     ),
     url: "https://www.agiloft.com/",
