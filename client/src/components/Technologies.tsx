@@ -22,9 +22,23 @@ import {
   SiNeo4J,
   SiAmazonredshift,
 } from "react-icons/si";
-import { FileIcon } from "lucide-react";
+import { FileIcon, Database, MessageSquareText, ClipboardCheck, Cable } from "lucide-react";
 
 const technologies = [
+  {
+    category: "AI & LLM",
+    items: [
+      { name: "OpenAI", icon: SiOpenai },
+      { name: "Google Gemini", icon: SiGooglegemini },
+      { name: "Perplexity", icon: SiPerplexity },
+      { name: "LangChain", icon: SiLangchain },
+      { name: "LlamaIndex", icon: FileIcon },
+      { name: "RAG", icon: Database },
+      { name: "Context & Prompt Engineering", icon: MessageSquareText },
+      { name: "AI Evaluation", icon: ClipboardCheck },
+      { name: "Model Context Protocol", icon: Cable },
+    ],
+  },
   {
     category: "Databases",
     items: [
@@ -68,17 +82,6 @@ const technologies = [
       { name: "React", icon: SiReact },
       { name: "TypeScript", icon: SiTypescript },
       { name: "HTML5", icon: SiHtml5},
-    ],
-  },
-  {
-    category: "AI & LLM",
-    items: [
-      { name: "OpenAI", icon: SiOpenai },
-      { name: "Google Gemini", icon: SiGooglegemini },
-      { name: "Perplexity", icon: SiPerplexity },
-      { name: "LangChain", icon: SiLangchain },
-      { name: "LlamaIndex", icon: FileIcon },
-      { name: "MCP", icon: FileIcon },
     ],
   },
 ];
