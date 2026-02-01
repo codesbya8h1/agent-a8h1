@@ -19,20 +19,6 @@ import Footer from "@/components/Footer";
 // Base path for GitHub Pages (e.g. /personal-portfolio). Empty for local dev or custom domain.
 const basePath = (import.meta.env.BASE_URL || "/").replace(/\/$/, "");
 
-function useBaseLocation(): ReturnType<typeof useLocation> {
-  const [pathname, navigate] = useLocation();
-  const normalized = !basePath
-    ? pathname
-    : pathname === basePath || pathname.startsWith(basePath + "/")
-      ? pathname.slice(basePath.length) || "/"
-      : pathname;
-  const setLocation = (path: string) => {
-    const to = path.startsWith("/") ? basePath + path : basePath + "/" + path;
-    navigate(to);
-  };
-  return [normalized, setLocation];
-}
-
 function RouterContent() {
   const [location] = useLocation();
 
@@ -63,7 +49,7 @@ function App() {
   return (
     <QueryClientProvider client={queryClient}>
       <CartProvider>
-        <Router hook={useBaseLocation}>
+        <Router base={basePath || "/"}>
           <RouterContent />
         </Router>
         <Toaster />

@@ -15,7 +15,8 @@ export default defineConfig({
   base,
   plugins: [
     react(),
-    runtimeErrorOverlay(),
+    // Only on Replit; locally it crashes on Vite virtual paths like /@react-refresh
+    ...(process.env.REPL_ID !== undefined ? [runtimeErrorOverlay()] : []),
     themePlugin(),
     ...(process.env.NODE_ENV !== "production" &&
     process.env.REPL_ID !== undefined
@@ -33,6 +34,7 @@ export default defineConfig({
     },
   },
   root: path.resolve(__dirname, "client"),
+  publicDir: path.resolve(__dirname, "public"),
   build: {
     outDir: path.resolve(__dirname, "dist/public"),
     emptyOutDir: true,
